@@ -103,6 +103,6 @@ void loop() {
   Serial.print(gyro_y); Serial.print(",");
   Serial.println(gyro_z); // Last value, so use println to move to next line
 
-  delay(3000);  // Adjust delay for data collection rate
+  delay(1000);  // Adjust delay for data collection rate
 }
 
