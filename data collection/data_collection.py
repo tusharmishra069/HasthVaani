@@ -1,273 +1,62 @@
 import serial
 import csv
-import os
+import time
 
-# Serial Port Configuration
-port = 'COM7'  # Change as needed (e.g., '/dev/ttyUSB0' for Linux)
-baud_rate = 115200  # Match with Arduino baud rate
+# Define Serial Port (Change based on your setup)
+SERIAL_PORT = "COM7"  # Windows Example (Change if needed)
+# SERIAL_PORT = "/dev/ttyUSB0"  # Linux/Mac Example
+BAUD_RATE = 115200  # Ensure this matches Arduino
 
-# CSV File Setup
-filename = os.path.join(os.path.dirname(__file__), 'sensor_data.csv')
-
-# Open the serial connection
+# Open serial connection
 try:
-    ser = serial.Serial(port, baud_rate, timeout=1)
-    print(f"Connected to {port} at {baud_rate} baud rate.")
-except:
-    print("Error: Could not open the serial port.")
+    ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
+    print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud rate.")
+except Exception as e:
+    print(f"Error: {e}")
     exit()
 
-# Create/Open the CSV file and write headers
-with open(filename, mode='w', newline='') as file:
+# Define CSV File Name
+csv_filename = "gesture_data.csv"
+
+# CSV Headers
+headers = ["Flex1", "Flex2", "Flex3", "Flex4", "Flex5", "Acc_X", "Acc_Y", "Acc_Z", "Gyro_X", "Gyro_Y", "Gyro_Z", "Gesture"]
+
+# Open CSV file in append mode (so new data gets added)
+with open(csv_filename, mode="a", newline="") as file:
     writer = csv.writer(file)
-    writer.writerow(['Flex1', 'Flex2', 'Flex3', 'Flex4', 'Flex5', 
-                      'Acc_X', 'Acc_Y', 'Acc_Z', 
-                      'Gyro_X', 'Gyro_Y', 'Gyro_Z'])  # Header
-
-    print("Recording data... Press Ctrl+C to stop.")
-
-    try:
-        while True:
-            if ser.in_waiting:
-                data = ser.readline().decode('utf-8').strip()  # Read and decode serial data
-                
-                # Expected Format: "Flex: 520,490,560,480,510 | Acc: 0.12,0.45,9.80 | Gyro: 0.01,0.02,0.03"
-                if "Flex:" in data and "Acc:" in data and "Gyro:" in data:
-                    try:
-                        # Splitting the data
-                        flex_data = data.split('|')[0].split(':')[1].strip().split(',')
-                        acc_data = data.split('|')[1].split(':')[1].strip().split(',')
-                        gyro_data = data.split('|')[2].split(':')[1].strip().split(',')
-                        
-                        # Check if all readings are valid
-                        if len(flex_data) == 5 and len(acc_data) == 3 and len(gyro_data) == 3:
-                            row = flex_data + acc_data + gyro_data
-                            writer.writerow(row)  # Save the data
-                            print(row)  # Display data in console
-
-                    except Exception as e:
-                        print(f"Error parsing data: {e}")
-
-    except KeyboardInterrupt:
-        print("\nData recording stopped by the user.")
-        ser.close()
-        print(f"Data saved in {filename}.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    # Write headers if the file is empty
+    if file.tell() == 0:
+        writer.writerow(headers)
+
+    print("Ready to collect data. Make a gesture and press ENTER.")
+
+    while True:
+        input("Press ENTER to record data for a new gesture (or CTRL+C to stop)...")
+        gesture_label = input("Enter gesture name: ")  # Get gesture name from user
+
+        for _ in range(10):  # Collect 10 samples per gesture
+            raw_data = ser.readline().decode().strip()  # Read from serial
+            
+            if raw_data:
+                try:
+                    print(f"Raw Data: {raw_data}")
+                    
+                    # Convert received data into a list
+                    data_list = list(map(float, raw_data.split(",")))
+
+                    # Ensure data format is correct
+                    if len(data_list) == 10:
+                        data_list.append(gesture_label)  # Add gesture label
+                        writer.writerow(data_list)  # Write data to CSV
+                        print("Data saved:", data_list)
+                    else:
+                        print("Invalid data format received.")
+
+                except ValueError as e:
+                    print(f"Data Conversion Error: {raw_data}, Error: {e}")
+
+        print(f"Gesture '{gesture_label}' recorded successfully!")
+
+print("\nData collection completed. File saved as:", csv_filename)
+ser.close()
