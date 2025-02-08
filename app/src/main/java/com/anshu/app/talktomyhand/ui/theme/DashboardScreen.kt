@@ -30,23 +30,26 @@ import androidx.navigation.compose.rememberNavController
 import com.anshu.app.talktomyhand.R
 import com.anshu.app.talktomyhand.ui.theme.GestureControlScreen
 
+
 @Composable
 fun DashboardScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFF0A0A0A))
-            .padding(top = 24.dp, start = 16.dp, end = 16.dp),
+            .padding(top = 50.dp, start = 25.dp, end = 20.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Profile Section
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
+                .padding(top = 1.dp, start = 25.dp, end = 25.dp)
 
         ) {
             Column(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                .weight(1f)
 
 
             ) {
@@ -68,14 +71,14 @@ fun DashboardScreen(navController: NavController) {
             )
         }
 
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(80.dp))
 
         // Connect Button
         GradientButton(text = "Connect your device!") {
             // Handle Bluetooth connection logic
         }
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         // Help Text
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
@@ -102,6 +105,8 @@ fun DashboardScreen(navController: NavController) {
         FeatureCard("Track Location", "Track your device location by tapping here", R.drawable.track, Color.Yellow) {
             navController.navigate("track_location")
         }
+        Spacer(modifier = Modifier.height(150.dp))
+
     }
 }
 
@@ -166,17 +171,7 @@ fun GradientButton(text: String, onClick: () -> Unit) {
     }
 }
 
-@Composable
-fun MainScreen(navController: NavHostController) {
-    val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "dashboard") {
-        composable("dashboard") { DashboardScreen(navController) }
-        composable("GestureControlScreen") { GestureControlScreen(navController) }
-        composable("Modes") { ModesScreen(navController) }
-        composable("track_location") { TrackLocationScreen(navController) }
-    }
-}
 
 // Example Placeholder Screens
 @Composable

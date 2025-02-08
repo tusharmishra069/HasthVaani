@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_EXPRESSION")
+
 package com.anshu.app.talktomyhand.ui.theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -40,14 +42,14 @@ fun Modes(onBackClick: NavHostController) {
                 tint = Color.White,
                 modifier = Modifier
                     .size(24.dp)
-                    .clickable { onBackClick() }
+                    .clickable { onBackClick }
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = "Back",
                 fontSize = 16.sp,
                 color = Color.White,
-                modifier = Modifier.clickable { onBackClick() }
+                modifier = Modifier.clickable { onBackClick }
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
