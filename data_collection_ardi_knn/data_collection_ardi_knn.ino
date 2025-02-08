@@ -64,6 +64,15 @@ void setup() {
   mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
 
   calibrateMPU6050();
+
+   // Initial display
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(20, 0);
+    display.print("HasthVaani");
+    display.display();
+    delay(2000);  // Show for 2 seconds
 }
 
 void loop() {
@@ -103,6 +112,6 @@ void loop() {
   Serial.print(gyro_y); Serial.print(",");
   Serial.println(gyro_z); // Last value, so use println to move to next line
 
-  delay(1000);  // Adjust delay for data collection rate
+  delay(250);  // Adjust delay for data collection rate
 }
 
