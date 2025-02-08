@@ -16,7 +16,7 @@ scaler = joblib.load(r"gesture Detection\scaler.pkl")
 
 # Set up Serial communication (Change 'COM3' to your actual port)
 
-ser = serial.Serial('COM7', 115200, timeout=1)
+ser = serial.Serial('COM7', 230400, timeout=1)
 
 
 

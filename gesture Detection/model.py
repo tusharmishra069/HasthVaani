@@ -30,5 +30,5 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"KNN Model Accuracy: {accuracy * 100:.2f}%")
 
 # Save the model and scaler to files
-joblib.dump(knn, 'knn_model.pkl')
-joblib.dump(scaler, 'scaler.pkl')
+joblib.dump(knn, 'gesture Detection/knn_model.pkl')
+joblib.dump(scaler, 'gesture Detection/scaler.pkl')

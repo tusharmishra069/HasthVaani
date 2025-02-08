@@ -3,11 +3,11 @@ import csv
 import time
 
 # Set up serial connection (Change 'COM3' to your port, e.g., '/dev/ttyUSB0' for Linux)
-ser = serial.Serial('COM7', 115200, timeout=1)
-time.sleep(2)  # Allow time for the connection to establish
+ser = serial.Serial('COM7', 230400, timeout=1)
+time.sleep(2)  #h
 
 # Open CSV file for writing data
-csv_filename = "gesture_data.csv"
+csv_filename = "gesture Detection/gesture_data.csv"
 
 # Define column headers
 columns = [

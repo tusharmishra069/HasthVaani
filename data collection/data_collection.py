@@ -4,7 +4,7 @@ import time
 
 # Serial Port Configuration
 SERIAL_PORT = "COM7"  
-BAUD_RATE = 115200
+BAUD_RATE = 230400
 OUTPUT_FILE = "sensor_data.csv"
 
 # Connect to Arduino
