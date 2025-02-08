@@ -1,5 +1,6 @@
 package com.anshu.app.talktomyhand
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,9 +18,11 @@ class MainActivity : ComponentActivity() {
                val navController = rememberNavController()
 
                 // Call the MainScreen with NavController to set up navigation
-               // MainScreen(navController)
+                MainScreen(){
 
-               //GestureControlScreen(navController)
+                }
+
+                //GestureControlScreen(navController)
 
 
 
