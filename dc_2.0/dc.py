@@ -2,11 +2,10 @@ import serial
 import csv
 import time
 
-# Set up serial connection (Change 'COM3' to your port, e.g., '/dev/ttyUSB0' for Linux)
 ser = serial.Serial('COM7', 230400, timeout=1)
 time.sleep(2)  #h
 
-# Open CSV file for writing data
+
 csv_filename = "gesture Detection/gesture_data.csv"
 
 # Define column headers
@@ -16,13 +15,13 @@ columns = [
     "Gesture"
 ]
 
-# Create CSV file and write headers if not already created
+# Create CSV file and write headers if it doesn't exist
 try:
     with open(csv_filename, "x", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(columns)
 except FileExistsError:
-    pass  # File already exists, no need to overwrite headers
+    pass  # File already exists no need to overwrite headers
 
 while True:
     gesture_name = input("Enter gesture name (or 'exit' to stop): ").strip()

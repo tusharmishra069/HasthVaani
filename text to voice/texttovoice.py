@@ -7,9 +7,8 @@ import pyttsx3
 knn = joblib.load(r"gesture Detection\knn_model.pkl")
 scaler = joblib.load(r"gesture Detection\scaler.pkl")
 
-# Set up Serial communication (Change 'COM3' to your actual port)
-ser = serial.Serial('COM7', 230400, timeout=0.05)  # Increased baud rate and reduced timeout
 
+ser = serial.Serial('COM7', 230400, timeout=0.05)  
 # Initialize pyttsx3
 engine = pyttsx3.init()
 

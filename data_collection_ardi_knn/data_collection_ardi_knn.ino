@@ -59,5 +59,5 @@ void loop() {
   Serial.print(gyro.gyro.z);
   Serial.println();  // End of line (for Python to read properly)
 
-  delay(2000);  // Adjust delay as needed
+  delay(2500);  // Adjust delay as needed
 }
