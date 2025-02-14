@@ -23,7 +23,7 @@ def speech_to_text():
 
     except sr.UnknownValueError:
         print("Sorry, I could not understand the audio.")
-    except sr.RequestError as e:
+    except sr.RequestError as e:  
         print(f"Could not get request; {e}")
 
 if __name__ == "__main__":

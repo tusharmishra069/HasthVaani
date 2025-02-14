@@ -8,7 +8,7 @@ knn = joblib.load(r"gesture Detection\knn_model.pkl")
 scaler = joblib.load(r"gesture Detection\scaler.pkl")
 
 
-ser = serial.Serial('COM7', 230400, timeout=0.05)  
+ser = serial.Serial('COM7', 115200, timeout=0.05)  
 # Initialize pyttsx3
 engine = pyttsx3.init()
 

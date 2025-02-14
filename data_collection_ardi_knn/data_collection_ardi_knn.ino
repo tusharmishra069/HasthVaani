@@ -13,7 +13,7 @@ const int flex4 = A3;
 const int flex5 = A4;
 
 void setup() {
-  Serial.begin(230400);
+  Serial.begin(115200);
   while (!Serial) delay(10);
 
   Serial.println("MPU6050 & Flex Sensor Initialization...");

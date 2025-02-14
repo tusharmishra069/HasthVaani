@@ -13,7 +13,7 @@ scaler = joblib.load(r"gesture Detection\scaler.pkl")
 
 
 
-ser = serial.Serial('COM7', 230400, timeout=1)
+ser = serial.Serial('COM7', 115200, timeout=1)
 
 
 
