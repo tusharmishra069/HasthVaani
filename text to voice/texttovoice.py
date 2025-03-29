@@ -3,20 +3,18 @@ import joblib
 import numpy as np
 import pyttsx3
 
-# Load trained KNN model and scaler
 knn = joblib.load(r"gesture Detection\knn_model.pkl")
 scaler = joblib.load(r"gesture Detection\scaler.pkl")
 
 
 ser = serial.Serial('COM7', 115200, timeout=0.05)  
-# Initialize pyttsx3
 engine = pyttsx3.init()
 
 print("Listening for real-time data...")
 
 while True:
     try:
-        raw_data = ser.readline().decode(errors='ignore').strip()  # Read from Serial with error handling
+        raw_data = ser.readline().decode(errors='ignore').strip()  
         
         if not raw_data or not raw_data[0].isdigit():  # Ignore non-numeric data
             continue
