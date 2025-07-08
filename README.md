@@ -10,7 +10,9 @@ HasthVaani aims to bridge the communication gap for deaf and mute individuals th
 
 ### Glove Prototype Preview
 
-[![Glove Prototype](https://drive.google.com/uc?export=view&id=1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ)](https://drive.google.com/file/d/1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ/view)
+<a href="https://drive.google.com/file/d/1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ/view" target="_blank">
+  <img src="https://drive.google.com/uc?export=view&id=1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ" alt="Glove Prototype" width="300"/>
+</a>
 
 *Click the image to view in full resolution.*
 
@@ -58,7 +60,9 @@ HasthVaani aims to bridge the communication gap for deaf and mute individuals th
 
 ### Glove Prototype Preview
 
-[![Glove Prototype](https://drive.google.com/uc?export=view&id=1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ)](https://drive.google.com/file/d/1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ/view)
+<a href="https://drive.google.com/file/d/1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ/view" target="_blank">
+  <img src="https://drive.google.com/uc?export=view&id=1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ" alt="Glove Prototype" width="400"/>
+</a>
 
 *Click the image to view in full resolution.*
 
