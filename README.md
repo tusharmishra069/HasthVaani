@@ -6,6 +6,18 @@
 
 HasthVaani aims to bridge the communication gap for deaf and mute individuals through smart hand gloves integrated with machine learning and sensor technology. The gloves translate hand gestures into speech and text, enabling seamless communication.
 
+## 📸 Demo
+
+### Glove Prototype Preview
+
+[![Glove Prototype](https://drive.google.com/uc?export=view&id=1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ)](https://drive.google.com/file/d/1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ/view)
+
+*Click the image to view in full resolution.*
+
+### 📹 Demo Video
+
+[Watch the demo video here](https://drive.google.com/file/d/1SGjEjuwWpI26fRLKnOFOzDZq4qg7ILTC/view)
+
 ## 🌟 Key Features
 
 - 🤖 Gesture Detection using KNN model and sensor data
@@ -41,6 +53,18 @@ HasthVaani aims to bridge the communication gap for deaf and mute individuals th
 1. Wear the smart gloves and connect them to the mobile application.
 2. Perform gestures to see real-time translation into text and speech.
 3. Use the mobile application to customize settings and view usage statistics.
+
+## 📸 Demo
+
+### Glove Prototype Preview
+
+[![Glove Prototype](https://drive.google.com/uc?export=view&id=1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ)](https://drive.google.com/file/d/1Ix54AiPEvExV0I1KNCALY_ATxvs8TVxZ/view)
+
+*Click the image to view in full resolution.*
+
+### 📹 Demo Video
+
+[Watch the demo video here](https://drive.google.com/file/d/1SGjEjuwWpI26fRLKnOFOzDZq4qg7ILTC/view)
 
 ## 👥 Contributors
 
